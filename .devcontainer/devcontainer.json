@@ -1,0 +1,54 @@
+// Adopting the default GitHub codespaces-jupyter template as starter
+// https://github.com/github/codespaces-jupyter
+{
+	"name": "Criando Agentes de IA",
+	"image": "mcr.microsoft.com/devcontainers/universal:2",
+	"hostRequirements": {
+		"cpus": 4
+	},
+	"waitFor": "onCreateCommand",
+	"updateContentCommand": "python3 -m pip install -r requirements.txt",
+	"postCreateCommand": "bash .devcontainer/post-create.sh",
+	"customizations": {
+		"codespaces": {
+			"openFiles": [],
+			"name": "fazedor-de-codigo" 
+		},
+		"vscode": {
+			"extensions": [
+				"ms-python.python",
+				"ms-toolsai.jupyter",
+				"ms-python.gather",
+				"github.copilot",
+				"github.copilot-chat",
+				"ms-python.vscode-pylance",
+				"ms-python.debugpy",
+				"vscode-icons-team.vscode-icons",
+				"ms-ceintl.vscode-language-pack-pt-br",
+				"streetsidesoftware.code-spell-checker-portuguese-brazilian",
+				"streetsidesoftware.code-spell-checker"
+			],
+            "settings": {
+                "workbench.iconTheme": "vscode-icons",
+				"workbench.activityBar.location": "top",
+				"workbench.sideBar.location": "right",
+				"workbench.colorTheme": "Safira Dark",
+				"workbench.startupEditor": "none",
+				"cSpell.language": "en,pt-BR",
+				"github.copilot.chat.localeOverride": "pt-br",
+				"github.copilot.editor.enableAutoCompletions": true,
+				"explorer.confirmDragAndDrop": false,
+				"explorer.confirmDelete": false,
+				"files.autoSave": "afterDelay",
+				"vsicons.dontShowNewVersionMessage": true,
+				"git.autofetch": true,
+				"git.enableSmartCommit": true,
+				"git.confirmSync": false,
+				"editor.inlineSuggest.enabled": true,
+    			"editor.fontSize": 14,
+    			"editor.minimap.enabled": false
+            },
+			"postCreateCommand": "pip3 --disable-pip-version-check --no-cache-dir install -r requirements.txt"
+		}
+	}
+}
