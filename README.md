@@ -22,7 +22,7 @@ Isso pode ser criado selecionando a opção `Code` na sua versão `birfucada` de
 
 Manter suas chaves da API seguras e protegidas é importante quando você cria qualquer tipo de aplicação. Recomendamos que você não armazene suas chaves da API diretamente no código com o qual está trabalhando. Pois a inclusão dessas informações num repositório público pode resultar em custos indesejados e problemas a você.
 
-![Dialog showing buttons to create a codespace](./images/who-will-pay.webp)
+![Dialog showing buttons to create a codespace](./00-setup/images/who-will-pay.webp)
 
 ## Como Executar Localmente no seu Computador
 
@@ -31,40 +31,95 @@ Para executar o código localmente no seu computador, você precisará ter algum
 Para utilizar o repositório, você precisará clonar primeiramente:
 
 ```shell
-git clone https://github.com/microsoft/generative-ai-for-beginners
-cd generative-ai-for-beginners
+git clone https://github.com/fazedordecodigo/criando-agentes-ia.git
+cd criando-agentes-ia
 ```
 
 Agora, você tem tudo configurado e pode começar a aprender e trabalhar com o código.
 
-### Instalando o miniconda (etapa opcional)
+### Instalando Poetry (etapa opcional)
 
-Existem vantagens em instalar o **[miniconda](https://conda.io/en/latest/miniconda.html)** - que é uma instalação bastante leve que suporta o gerenciador de pacotes `conda` para diferentes **ambientes virtuais** do Python. O `conda` facilita a instalação e alternância entre diferentes versões e pacotes do Python e também a instalação de pacotes que não estão disponíveis via `pip`.
+Existem vantagens em instalar o **[Poetry](https://python-poetry.org/docs/)** para gerenciar as dependências e o ambiente virtual de seu projeto Python de maneira mais eficiente e organizada. O Poetry facilita o controle das versões das bibliotecas, a instalação de dependências e a criação de arquivos de configuração, como o `pyproject.toml`. A seguir, estão as instruções para instalar o Poetry e integrá-lo ao seu projeto.
 
-Depois de instalar o miniconda, você precisará clonar o repositório (se ainda não o fez) e criar um ambiente virtual a ser usado neste curso:
+#### Passo 1: Instalação do Poetry
 
-Antes de executar a etapa abaixo, tenha certeza de que você já possui um arquivo *environment.yml*. O arquivo *environment.yml* é usado para criar um ambiente conda com as dependências necessárias e que pode se parecer com isto:
-
-```yml
-name: <environment-name>
-channels:  
- - defaults
-dependencies:  
-- python=<python-version>  
-- openai  
-- python-dotenv
-```
-
-Você pode substituir `<environment-name>` pelo nome do seu ambiente conda e `<python-version>` pela versão do Python que você deseja usar. Coloque o arquivo *environment.yml* criado na pasta *.devcontainer* do seu repositório.
-
-Agora que você criou um arquivo *environment.yml*, você pode criar um ambiente conda com o seguinte comando:
+Para instalar o Poetry, você pode executar o seguinte comando diretamente no terminal:
 
 ```bash
-conda env create --name ai4beg --file .devcontainer/environment.yml
-conda activate ai4beg
+curl -sSL https://install.python-poetry.org | python3 -
 ```
 
-Se você tiver problemas, consulte este link sobre a criação de [ambientes conda](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
+Este comando irá baixar e executar o script de instalação do Poetry. Caso prefira, você pode consultar o site oficial do Poetry para outras opções de instalação, como via Homebrew ou diretamente pelo gerenciador de pacotes de sua distribuição Linux.
+
+#### Passo 2: Configuração do Poetry no Projeto
+
+Após a instalação, você precisará adicionar o Poetry ao seu PATH, caso o instalador não tenha feito isso automaticamente. Para verificar se a instalação foi bem-sucedida, execute o seguinte comando:
+
+```bash
+poetry --version
+```
+
+Se o Poetry estiver corretamente instalado, ele retornará a versão instalada. Agora, você pode iniciar um novo projeto Python ou configurar o Poetry em um projeto existente.
+
+#### Passo 3: Iniciando um Novo Projeto com Poetry
+
+Para criar um novo projeto com o Poetry, navegue até o diretório onde deseja criar o projeto e execute:
+
+```bash
+poetry new nome-do-projeto
+```
+
+Isso criará uma nova pasta chamada `nome-do-projeto` com a estrutura básica de um projeto Python, incluindo o arquivo `pyproject.toml` que o Poetry usa para gerenciar as dependências e configurações do projeto.
+
+#### Passo 4: Adicionando o Poetry a um Projeto Existente
+
+Se você já tem um projeto Python existente e deseja adicionar o Poetry, basta executar o comando abaixo dentro do diretório do projeto:
+
+```bash
+poetry init
+```
+
+Este comando iniciará um assistente interativo que ajudará a configurar o arquivo `pyproject.toml`. Ele irá perguntar sobre as dependências e outras configurações do projeto. Responda às perguntas conforme necessário ou simplesmente pressione `Enter` para aceitar as opções padrão.
+
+#### Passo 5: Instalando Dependências
+
+Após a configuração inicial, você pode adicionar dependências ao seu projeto usando o comando:
+
+```bash
+poetry add nome-da-dependencia
+```
+
+O Poetry instalará a dependência e atualizará o arquivo `pyproject.toml` com a versão exata, garantindo que seu ambiente permaneça consistente.
+
+#### Passo 6: Usando o Ambiente Virtual do Poetry
+
+O Poetry gerencia automaticamente o ambiente virtual para seu projeto. Para ativá-lo, você pode usar o comando:
+
+```bash
+poetry shell
+```
+
+Dentro deste ambiente, todas as dependências instaladas estarão disponíveis. Para executar comandos no ambiente virtual sem ativá-lo explicitamente, você pode prefixar o comando com `poetry run`, como:
+
+```bash
+poetry run python script.py
+```
+
+#### Passo 7: Gerenciamento de Dependências
+
+Para ver todas as dependências instaladas e suas versões, use:
+
+```bash
+poetry show
+```
+
+Para atualizar as dependências para a última versão compatível, execute:
+
+```bash
+poetry update
+```
+
+Com esses passos, você estará pronto para utilizar o Poetry em seu projeto Python, aproveitando suas funcionalidades para um gerenciamento de dependências mais eficaz e organizado.
 
 ### Usando o Visual Studio Code com a Extensão do Python
 
