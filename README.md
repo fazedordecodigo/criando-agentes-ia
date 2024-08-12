@@ -123,9 +123,9 @@ Com esses passos, você estará pronto para utilizar o Poetry em seu projeto Pyt
 
 ### Usando o Visual Studio Code com a Extensão do Python
 
-Provavelmente a melhor maneira de usar o currículo é abrindo no [Visual Studio Code](http://code.visualstudio.com/) com a [Extensão Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python&WT.mc_id=academic-105485-koreyst).
+Provavelmente a melhor maneira de usar o currículo é abrindo no [Visual Studio Code](http://code.visualstudio.com/) com a [Extensão Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python).
 
-> **Observação**: Uma vez que você clonar e abrir o diretório no VS Code, ele automaticamente vai sugerir que você instale as extensões do Python. Você também precisará instalar o `Miniconda` conforme descrito acima.
+> **Observação**: Uma vez que você clonar e abrir o diretório no VS Code, ele automaticamente vai sugerir que você instale as extensões do Python. Você também precisará instalar o `Poetry` conforme descrito acima.
 
 > **Observação**: Se o VS Code sugerir que você reabra o repositório em um container, você precisará recusar isso para usar a instalação local do Python. 
 
