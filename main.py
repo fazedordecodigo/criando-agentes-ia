@@ -1,18 +1,17 @@
 from openai import OpenAI
 import os
-import dotenv
-
-dotenv.load_dotenv()
 
 client = OpenAI(
     api_key=os.environ['OPENAI_API_KEY']
 )
 
-deployment = "gpt-4o"
+conversation = [{"role": "system", "content": "Você é o Jarvis e eu sou o Tony Stark."}]
 
-prompt = "Quem nasceu primeiro, o ovo ou a galinha?"
-messages = [{"role": "user", "content": prompt}]
+while(True): 
+    user_input = input("> ")
+    conversation.append({"role": "user", "content": user_input})
 
-completion = client.chat.completions.create(model=deployment, messages=messages)
+    response = client.chat.completions.create(model='gpt-4o', messages=conversation)
 
-print(completion.choices[0].message.content)
+    conversation.append({"role": "assistant", "content": response.choices[0].message.content})
+    print("\n" + response.choices[0].message.content + "\n")
